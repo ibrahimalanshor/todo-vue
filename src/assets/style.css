@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	#app {
+		@apply bg-black w-full h-screen flex items-center justify-center;
+	}
+
+	.box {
+		@apply text-gray-900 shadow w-96 relative;
+	}
+	.box .body {
+		@apply bg-white p-4 rounded-t;
+	}
+	.box .title {
+		@apply flex items-center;
+	}
+	.box .title:hover .title-button {
+		@apply block;
+	}
+	.box .title h1 {
+		@apply font-bold text-2xl mb-1 mr-2;
+	}
+	.title-button {
+		@apply hidden;
+	}
+	.box .title .icon {
+		@apply w-5 h-5;
+	}
+
+	.bar {
+		@apply flex items-center;
+	}
+	.bar .fill {
+		@apply bg-gray-300 rounded h-1 mr-3 flex-grow;
+	}
+	.bar .precentage {
+		@apply h-full bg-gray-900 rounded-l;
+	}
+	.bar span {
+		@apply text-sm;
+	}
+
+	.list {
+		@apply text-gray-700;
+	}
+	.list li {
+		@apply my-4;
+	}
+	.list label {
+		@apply relative flex items-center justify-between cursor-pointer;
+	}
+	.list label:hover .list-button {
+		@apply block;
+	}
+	.list input {
+		@apply hidden;
+	}
+	.list-button {
+		@apply hidden;
+	}
+	.list .icon, .modal .head .icon {
+		@apply w-4 h-4;
+	}
+	.list .checkbox {
+		@apply flex items-center;
+	}
+	.list .check {
+		content: '';
+		@apply bg-gray-900 rounded block w-4 h-4 mr-3;
+	}
+	.list input:checked ~ .check:after {
+		@apply block;
+	}
+	.list input:checked ~ .text {
+		@apply line-through;
+	}
+	.list .check:after {
+		content: '';
+		top: 9px;
+		left: 4px;
+		@apply hidden border-l-2 border-b-2 w-2 h-1 transform -rotate-45 absolute;
+	}
+
+	.foot {
+		@apply bg-gray-100 rounded-b w-full h-12 text-center;
+	}
+	.foot button {
+		@apply bg-gray-900 text-white p-1 rounded-full -mt-4;
+	}
+	.foot .icon {
+		@apply w-8 h-8;
+	}
+
+	.modal {
+		@apply w-full h-screen flex items-center justify-center fixed top-0 left-0;
+	}
+	.modal .overlay {
+		@apply bg-black opacity-50 w-full h-full absolute top-0 left-0;
+	}
+	.modal .body {
+		@apply bg-white text-gray-800 shadow rounded w-full mx-4 relative;
+	}
+	.modal .head {
+		@apply font-bold border-b p-4 flex items-center justify-between;
+	}
+	.modal .slot {
+		@apply p-4;
+	}
+
+	form label {
+		@apply font-bold;
+	}
+	form input {
+		@apply w-full block border rounded px-4 py-2 mt-2;
+	}
+	form input.error {
+		@apply border-red-400 text-red-500 placeholder-red-500;
+	}
+	form small.error {
+		@apply text-red-500;
+	}
+	form button {
+		@apply bg-gray-900 text-white w-full h-10 mt-4 rounded;
+	}
+}
+
+@screen sm {
+	.modal .body {
+		@apply mx-0 w-1/4;
+	}
+}
